@@ -34,7 +34,7 @@
                 <th>Public</th>
             </tr>
             <?php
-            require "config.php";
+            include "config.php";
             $query = "SELECT * FROM list";
             $result = exec_query($conn, $query);
             while ($row = mysqli_fetch_assoc($result)) {
@@ -43,12 +43,20 @@
                 print '<td align="center">' . $row['details'] . "</td>";
                 print '<td align="center">' . $row['date_posted'] . " - " . $row['time_posted'] . "</td>";
                 print '<td align="center">' . $row['date_edited'] . " - " . $row['time_edited'] . "</td>";
-                print '<td align="center"><a href="edit.php">edit</a> </td>';
-                print '<td align="center"><a href="delete.php">delete</a> </td>';
+                print '<td align="center"><a href="edit.php?id=' . $row['id'] . ' ">edit</a> </td>';
+                print '<td align="center"><a href="#" onclick="myFunc(' . $row['id'] . ')">delete</a> </td>';
                 print '<td align="center">' . $row['public'] . "</td>";
                 print "</tr>";
             }
             ?>
         </table>
+        <script>
+            function myFunc(id){
+                let r = confirm(`Are you sure you want to delete this record id ${id}`);
+                if (r== true){
+                    window.location.assign("delete.php?id=" + id);
+                }
+            }
+        </script>
     </body>
 </html>
