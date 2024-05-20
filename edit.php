@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date = date("F j, Y");
     if (isset($_POST["public"]) && !empty($_POST["public"])) {
         foreach ($_POST['public'] as $list) {
-            if ($list['id'] != null) {
+            if ($list != null) {
                 $public = "yes";
             }
         }

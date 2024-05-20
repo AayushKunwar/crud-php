@@ -23,8 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = mysqli_real_escape_string($conn, $_POST['password']);
     $bool = true;
 
-    echo "Username entered is: " . $username . "<br>";
-    echo "Password is:" . $password . "<br>";
+    // echo "Username entered is: " . $username . "<br>";
+    // echo "Password is:" . $password . "<br>";
 
     $query = "SELECT * FROM users";
     $result = mysqli_query($conn, $query);
@@ -32,8 +32,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "error: " . mysqli_error($conn);
         exit();
     }
+    $count = mysqli_num_rows($result);
+    if ($count > 9) {
+        print '<script> alert ("Sorry, the registration limit has been reached and registration is closed. :(");</script>';
+        exit;
+    }
     while ($row = mysqli_fetch_assoc($result)) {
-        echo $row['username'] . "<br>";
+        // echo $row['username'] . "<br>";
         $table_users = $row["username"];
         if ($username == $table_users) {
             $bool = false;

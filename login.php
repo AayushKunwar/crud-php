@@ -3,8 +3,9 @@
         <title>Login</title>
     </head>
     <body>
-        <h2>login page Page</h2>
+        <h2>login Page</h2>
         <a href="index.php">click here to go back</a>
+        <br>
         <form action="checklogin.php" method="post">
             Enter Username: <input type="text" name="username" required="required">
             <br>

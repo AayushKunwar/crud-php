@@ -16,6 +16,7 @@
         <p>Hello <?php print "$user" ?>!</p>
         <a href="logout.php">Click here to logout</a>
         <br>
+        <br>
         <form action="add.php" method="POST">
             Add more to list:
             <input type="text" name="details"/><br>

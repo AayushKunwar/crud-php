@@ -6,9 +6,7 @@
     <title>yasoo</title>
 </head>
 <body>
-    <?php
-    echo "<p>Hello world</p>"
-        ?>
+   <h2>List CRUD php app</h2> 
     <a href="login.php">Click here to login</a>
     <br>
     <br>
