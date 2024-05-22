@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
     <title>yasoo</title>
 </head>
-<body>
-   <h2>List CRUD php app</h2> 
-    <a href="login.php">Click here to login</a>
-    <br>
-    <br>
-    <a href="register.php">Click here to register</a>
-    <br>
-    <h2 align="center">List</h2>
-    <table width="100%" border="1px">
-        <tr>
+
+<body class="p-3">
+    <div class="navbar navbar-expand-lg mb-3">
+        <div class="w-100">
+            <h2 style="display: inline;">Public / Private Post</h2>
+            <div style="float: right; display:inline">
+                <a class="btn btn-primary" href="login.php">Login</a>
+                <a class="btn btn-secondary" href="register.php">Register</a>
+            </div>
+        </div>
+    </div>
+    <h3 align="center">Public Posts</h3>
+    <table class="table table-striped" width="100%" border="1px">
+        <tr class="text-center">
             <th>Id</th>
             <th>Details</th>
             <th>Post Time</th>
@@ -35,4 +40,5 @@
         ?>
     </table>
 </body>
+
 </html>

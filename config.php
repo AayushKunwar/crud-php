@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "root", "crudphp");
+$conn = mysqli_connect("localhost", "root", "", "crudphp");
 if (!$conn) {
     echo "Database connectioni error" . mysqli_connect_error();
 }
