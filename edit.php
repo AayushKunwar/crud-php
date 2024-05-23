@@ -27,26 +27,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 <html>
-    <head>
-        <title>Edit page</title>
-    </head>
-    
-    <body>
-        
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>Edit page</title>
+</head>
+
+<body class="p-3">
+
+    <div class="navbar">
         <h2>Edit Page</h2>
-        <p>Hello <?php print "$user" ?></p>
-        <a href="logout.php">Click here to go logout</a><br><br>
-        <a href="home.php">Return to home page</a>
-        <h2 align="center">Currently Selected</h2>
-        <table border="1px" width="100%">
-            <tr>
-                <th>ID</th>
-                <th>Details</th>
-                <th>Post Time</th>
-                <th>Edit Time</th>
-                <th>Public Post</th>
-            </tr>
-            <?php
+        <div style="float: right;">
+            <a class="btn btn-primary" href="home.php">Home</a>
+            <a class="btn btn-secondary" href="logout.php">Logout</a>
+        </div>
+    </div>
+    <p>Hello <?php print "$user" ?></p>
+    <h2 align="center">Currently Selected</h2>
+    <table class="table container" border="1px" width="100%">
+        <tr class="text-center">
+            <th>ID</th>
+            <th>Details</th>
+            <th>Post Time</th>
+            <th>Edit Time</th>
+            <th>Public Post</th>
+        </tr>
+        <?php
             $id_exists = false;
             require_once "config.php";
             function process_id()
@@ -76,20 +83,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             process_id();
             ?>
-        </table>
-        <br>
-        <?php
+    </table>
+    <br>
+    <?php
         if ($id_exists == "true") {
-            print '
-            <form action="edit.php" method="post">
-                Enter new detail: <input type="text" name="details" /><br>
-                public post? <input type="checkbox" name="public[]" value="yes"/><br>
-                <input type="submit" value="Update List"/>
+            print '<div class="container card p-3 bg-body-tertiary">
+            <form  action="edit.php" method="post">
+                <div class="form-label">Enter new detail:</div> 
+                <input class="form-control mb-3" type="text" name="details" />
+
+                <div class="form-check">
+                    <input class="form-check-input mb-3" type="checkbox" name="public[]" value="yes"/>
+                    <div class="form-check-label">Is public post</div>
+                </div>
+                <input class="btn btn-primary mt-3" type="submit" value="Update List"/>
             </form>
+            </div>
             ';
         } else {
             print '<h2 align="center">There is no data to be edited</h2>';
         }
         ?>
-    </body>
+</body>
+
 </html>

@@ -3,8 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <title>yasoo</title>
+    <title>Online Bulletin Board</title>
 </head>
 
 <body class="p-3">
@@ -18,7 +19,7 @@
         </div>
     </div>
     <h3 align="center">Public Posts</h3>
-    <table class="container table table-striped" width="100%" border="1px">
+    <table class="table table-striped container" width="100%" border="1px">
         <tr class="text-center">
             <th>Id</th>
             <th>Details</th>

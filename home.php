@@ -1,8 +1,9 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <title>PHP website</title>
+    <title>Home Page</title>
 </head>
 <?php
     session_start();
@@ -23,8 +24,8 @@
     <div class="card container p-3 mb-5 bg-body-tertiary">
         <form class="" action="add.php" method="POST">
             <div class="form-label"> Add more to list:</div>
-            <input class="form-control" type="text" name="details" /><br>
-            <div class="form-check mb-2">
+            <input class="form-control mb-3" type="text" name="details" />
+            <div class="form-check mb-3">
                 <input class="form-check-input" type="checkbox" name="public[]" value="yes" />
                 <div class="form-check-label">Is public post</div>
             </div>
