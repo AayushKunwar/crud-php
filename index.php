@@ -10,7 +10,7 @@
 <body class="p-3">
     <div class="navbar navbar-expand-lg mb-3">
         <div class="w-100">
-            <h2 style="display: inline;">Public / Private Post</h2>
+            <h2 style="display: inline;">Online Bulletin Board</h2>
             <div style="float: right; display:inline">
                 <a class="btn btn-primary" href="login.php">Login</a>
                 <a class="btn btn-secondary" href="register.php">Register</a>
@@ -18,7 +18,7 @@
         </div>
     </div>
     <h3 align="center">Public Posts</h3>
-    <table class="table table-striped" width="100%" border="1px">
+    <table class="container table table-striped" width="100%" border="1px">
         <tr class="text-center">
             <th>Id</th>
             <th>Details</th>

@@ -25,7 +25,7 @@
             </div>
             <input class="mt-4 btn btn-primary" type="submit" value="Login">
         </form>
-        <a style="width: max-content" class="" href="index.php">click here to go back</a>
+        <a style="width: max-content" class="" href="index.php">Go back</a>
     </div>
 </body>
 

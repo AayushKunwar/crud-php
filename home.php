@@ -1,8 +1,10 @@
 <html>
-    <head>
-        <title>PHP website</title>
-    </head>
-    <?php
+
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <title>PHP website</title>
+</head>
+<?php
     session_start();
     if ($_SESSION['user']) {
     } else {
@@ -11,30 +13,36 @@
     }
     $user = $_SESSION['user'];// assign user variable
     ?>
-    <body>
-        <h2>Home Page</h2>
-        <p>Hello <?php print "$user" ?>!</p>
-        <a href="logout.php">Click here to logout</a>
-        <br>
-        <br>
-        <form action="add.php" method="POST">
-            Add more to list:
-            <input type="text" name="details"/><br>
-            Public post? <input type="checkbox" name="public[]" value="yes"/> <br>
-            <input type="submit" value="Add to list"/>
+
+<body class="p-3">
+    <div class="navbar navbar-expanded">
+        <h2 style="display: inline;">Home Page</h2>
+        <a style="float:right" class="btn btn-secondary" href="logout.php">Logout</a>
+    </div>
+    <p>Hello <?php print "$user" ?>!</p>
+    <div class="card container p-3 mb-5 bg-body-tertiary">
+        <form class="" action="add.php" method="POST">
+            <div class="form-label"> Add more to list:</div>
+            <input class="form-control" type="text" name="details" /><br>
+            <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" name="public[]" value="yes" />
+                <div class="form-check-label">Is public post</div>
+            </div>
+            <input class="btn btn-primary mt-2" type="submit" value="Add to list" />
         </form>
-        <h2 align="center">My List</h2>
-        <table border="1px" width="100%">
-            <tr>
-                <th>ID</th>
-                <th>Details</th>
-                <th>Post Time</th>
-                <th>Edit Time</th>
-                <th>Edit</th>
-                <th>Delete</th>
-                <th>Public</th>
-            </tr>
-            <?php
+    </div>
+    <h2 align="center">Main List</h2>
+    <table class="container table table-striped" border="1px" width="100%">
+        <tr class="text-center">
+            <th>ID</th>
+            <th>Details</th>
+            <th>Post Time</th>
+            <th>Edit Time</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>Public</th>
+        </tr>
+        <?php
             include "config.php";
             $query = "SELECT * FROM list";
             $result = exec_query($conn, $query);
@@ -44,20 +52,21 @@
                 print '<td align="center">' . $row['details'] . "</td>";
                 print '<td align="center">' . $row['date_posted'] . " - " . $row['time_posted'] . "</td>";
                 print '<td align="center">' . $row['date_edited'] . " - " . $row['time_edited'] . "</td>";
-                print '<td align="center"><a href="edit.php?id=' . $row['id'] . ' ">edit</a> </td>';
-                print '<td align="center"><a href="#" onclick="myFunc(' . $row['id'] . ')">delete</a> </td>';
+                print '<td align="center"><a style="text-decoration:none;" class="badge rounded-pill bg-primary-subtle text-primary-emphasis " href="edit.php?id=' . $row['id'] . ' ">Edit</a> </td>';
+                print '<td align="center"><a class="badge rounded-pill bg-danger-subtle text-danger-emphasis " style="text-decoration:none;" href="#" onclick="myFunc(' . $row['id'] . ')">Delete</a> </td>';
                 print '<td align="center">' . $row['public'] . "</td>";
                 print "</tr>";
             }
             ?>
-        </table>
-        <script>
-            function myFunc(id){
-                let r = confirm(`Are you sure you want to delete this record id ${id}`);
-                if (r== true){
-                    window.location.assign("delete.php?id=" + id);
-                }
-            }
-        </script>
-    </body>
+    </table>
+    <script>
+    function myFunc(id) {
+        let r = confirm(`Are you sure you want to delete this record id ${id}`);
+        if (r == true) {
+            window.location.assign("delete.php?id=" + id);
+        }
+    }
+    </script>
+</body>
+
 </html>
